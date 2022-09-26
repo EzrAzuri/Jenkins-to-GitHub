@@ -16,8 +16,8 @@ pipeline {
     
     stage ("Report") {
       steps {
-        echo "Job done" > report.txt
-      archiveArtifacts allowEmptyArchive: true, artifacts: 'report.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+        sh "printf job done > report.txt"
+        archiveArtifacts allowEmptyArchive: true, artifacts: 'report.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
       }
     }
   }
