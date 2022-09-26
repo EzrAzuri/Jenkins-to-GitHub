@@ -3,16 +3,22 @@ pipeline {
   
   stages {
     stage ("Test") {
-      echo "Testing"
+      steps {
+        echo "Testing"
+      }
     }
     
     stage ("Deploy") {
-      echo "Deploying"
+      steps {
+        echo "Deploying"
+      }
     }
     
     stage ("Report") {
-      echo "Job done" > report.txt
+      steps {
+        echo "Job done" > report.txt
       archiveArtifacts allowEmptyArchive: true, artifacts: 'report.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+      }
     }
   }
 }
